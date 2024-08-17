@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://l0w1n8457hv1"]
+
+[ext_resource type="Texture2D" uid="uid://dclily7hswetn" path="res://icon.svg" id="1_6uesc"]
+[ext_resource type="Script" path="res://projectiles/falling_projectile/falling_projectile.gd" id="1_dwtjd"]
+[ext_resource type="Shape2D" uid="uid://c0w0dustt4uo2" path="res://Resources/colliders/projectile_collider.tres" id="2_2ebdg"]
+
+[node name="FallingProjectile" type="Node2D"]
+script = ExtResource("1_dwtjd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_6uesc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = ExtResource("2_2ebdg")

@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfbuk5380yvww"]
+
+[ext_resource type="Script" path="res://kraken/tentacle/tentacle.gd" id="1_jeye1"]
+[ext_resource type="Script" path="res://kraken/kraken.gd" id="1_txffc"]
+[ext_resource type="Texture2D" uid="uid://crdswohrca1n7" path="res://kraken/tentacle/tentacle.png" id="2_bd2f3"]
+[ext_resource type="Shape2D" uid="uid://e5ldc488r0yr" path="res://resources/colliders/entity_collider.tres" id="3_kqj22"]
+[ext_resource type="Shape2D" uid="uid://c0w0dustt4uo2" path="res://resources/colliders/projectile_collider.tres" id="3_ok4ff"]
+[ext_resource type="Texture2D" uid="uid://1mjsbasyei0d" path="res://kraken/mouth/mouth.png" id="4_busd3"]
+[ext_resource type="Script" path="res://kraken/mouth.gd" id="5_nifev"]
+
+[node name="Kraken" type="Node2D"]
+script = ExtResource("1_txffc")
+
+[node name="Tentacle" type="Node2D" parent="."]
+script = ExtResource("1_jeye1")
+
+[node name="Tentacle" type="Sprite2D" parent="Tentacle"]
+position = Vector2(0, 469)
+texture = ExtResource("2_bd2f3")
+
+[node name="Grabber" type="Area2D" parent="Tentacle"]
+
+[node name="Collider" type="CollisionShape2D" parent="Tentacle/Grabber"]
+shape = ExtResource("3_kqj22")
+
+[node name="Collision" type="Area2D" parent="Tentacle" groups=["tentacle"]]
+
+[node name="Collider" type="CollisionShape2D" parent="Tentacle/Collision"]
+shape = ExtResource("3_ok4ff")
+
+[node name="Mouth" type="Node2D" parent="."]
+position = Vector2(0, 947)
+script = ExtResource("5_nifev")
+
+[node name="Mouth" type="Sprite2D" parent="Mouth"]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_busd3")
+
+[node name="FeedArea" type="Area2D" parent="Mouth"]
+monitorable = false
+
+[node name="Collision" type="CollisionShape2D" parent="Mouth/FeedArea"]
+shape = ExtResource("3_kqj22")
+
+[connection signal="area_entered" from="Mouth/FeedArea" to="Mouth" method="_on_feed_area_area_entered"]
