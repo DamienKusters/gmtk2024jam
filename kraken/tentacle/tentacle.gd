@@ -7,7 +7,7 @@ var grabbed_entity
 func _process(_delta: float) -> void:
 	_tween_position(get_global_mouse_position() - get_parent().position)
 	if grabbed_entity != null:
-		grabbed_entity.position = position
+		grabbed_entity.global_position = global_position
 
 var _tween: Tween
 func _tween_position(_global_mouse_position: Vector2):

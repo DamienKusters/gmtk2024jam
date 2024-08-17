@@ -65,34 +65,33 @@ libraries = {
 unique_name_in_owner = true
 position = Vector2(0, -1028)
 
-[node name="Entities" type="Node2D" parent="."]
-position = Vector2(0, -1028)
-script = ExtResource("5_vt61d")
-
-[node name="Spawner" type="Node2D" parent="Entities"]
+[node name="Spawner" type="Node2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(0, -1028)
 script = ExtResource("4_3q3ru")
 
-[node name="A" type="Node2D" parent="Entities/Spawner"]
+[node name="A" type="Node2D" parent="Spawner"]
 position = Vector2(-684, 0)
 script = ExtResource("4_3q3ru")
 
-[node name="A" type="Node2D" parent="Entities/Spawner/A"]
+[node name="A" type="Node2D" parent="Spawner/A"]
 
-[node name="B" type="Node2D" parent="Entities/Spawner/A"]
+[node name="B" type="Node2D" parent="Spawner/A"]
 position = Vector2(0, 720)
 
-[node name="B" type="Node2D" parent="Entities/Spawner"]
+[node name="B" type="Node2D" parent="Spawner"]
 position = Vector2(684, 0)
 script = ExtResource("4_3q3ru")
 
-[node name="A" type="Node2D" parent="Entities/Spawner/B"]
+[node name="A" type="Node2D" parent="Spawner/B"]
 
-[node name="B" type="Node2D" parent="Entities/Spawner/B"]
+[node name="B" type="Node2D" parent="Spawner/B"]
 position = Vector2(0, 720)
 
+[node name="Entities" type="Node2D" parent="."]
+script = ExtResource("5_vt61d")
+
 [node name="Timer" type="Timer" parent="Entities"]
-wait_time = 2.0
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
