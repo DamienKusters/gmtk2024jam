@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnubx0ihljvfy"]
+[gd_scene load_steps=10 format=3 uid="uid://bnubx0ihljvfy"]
 
 [ext_resource type="PackedScene" uid="uid://bfbuk5380yvww" path="res://kraken/kraken.tscn" id="1_biqms"]
 [ext_resource type="Texture2D" uid="uid://dyr4hg0ofvj18" path="res://stages/grass_stage/background.png" id="1_fgkqi"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="2_7adwt"]
 [ext_resource type="Script" path="res://entities/spawner/spawner.gd" id="4_3q3ru"]
 [ext_resource type="Script" path="res://entities/entities.gd" id="5_vt61d"]
+[ext_resource type="Theme" uid="uid://b758yjx3y8pnn" path="res://theme.tres" id="6_1liys"]
 
 [sub_resource type="Animation" id="Animation_vpk5c"]
 resource_name = "shake"
@@ -90,5 +91,62 @@ position = Vector2(0, 650)
 [node name="Timer" type="Timer" parent="Entities"]
 wait_time = 2.0
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Ui" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_1liys")
+
+[node name="Top" type="Control" parent="CanvasLayer/Ui"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Mid" type="Control" parent="CanvasLayer/Ui"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Bot" type="Control" parent="CanvasLayer/Ui"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NotificationPopup" type="Control" parent="CanvasLayer/Ui"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Ui/NotificationPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Label" type="Label" parent="CanvasLayer/Ui/NotificationPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CONSUME"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="Entities/Timer" to="Entities" method="_on_timer_timeout"]
