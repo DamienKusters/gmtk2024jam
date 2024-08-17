@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var spawner = %Spawner
 
+const GROWTH_SPEED = 3
+
 var entities = [
 	preload("res://entities/bird/bird.tscn")
 ]

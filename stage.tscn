@@ -1,11 +1,27 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnubx0ihljvfy"]
+[gd_scene load_steps=11 format=3 uid="uid://bnubx0ihljvfy"]
 
 [ext_resource type="PackedScene" uid="uid://bfbuk5380yvww" path="res://kraken/kraken.tscn" id="1_biqms"]
 [ext_resource type="Texture2D" uid="uid://dyr4hg0ofvj18" path="res://stages/grass_stage/background.png" id="1_fgkqi"]
+[ext_resource type="Script" path="res://background.gd" id="2_4lvxb"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="2_7adwt"]
 [ext_resource type="Script" path="res://entities/spawner/spawner.gd" id="4_3q3ru"]
 [ext_resource type="Script" path="res://entities/entities.gd" id="5_vt61d"]
-[ext_resource type="Theme" uid="uid://b758yjx3y8pnn" path="res://theme.tres" id="6_1liys"]
+[ext_resource type="PackedScene" uid="uid://ctdo50qeghewk" path="res://ui/ui.tscn" id="6_86i1h"]
+
+[sub_resource type="Animation" id="Animation_dhwlv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_vpk5c"]
 resource_name = "shake"
@@ -23,21 +39,6 @@ tracks/0/keys = {
 "values": [Vector2(10, 0), Vector2(0, 0), Vector2(-10, 0), Vector2(10, 0), Vector2(0, 0), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_dhwlv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b2pgm"]
 _data = {
 "RESET": SubResource("Animation_dhwlv"),
@@ -49,6 +50,7 @@ _data = {
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_fgkqi")
 offset = Vector2(0, -2500)
+script = ExtResource("2_4lvxb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -514)
@@ -60,6 +62,7 @@ libraries = {
 }
 
 [node name="Kraken" parent="." instance=ExtResource("1_biqms")]
+unique_name_in_owner = true
 position = Vector2(0, -1028)
 
 [node name="Entities" type="Node2D" parent="."]
@@ -77,7 +80,7 @@ script = ExtResource("4_3q3ru")
 [node name="A" type="Node2D" parent="Entities/Spawner/A"]
 
 [node name="B" type="Node2D" parent="Entities/Spawner/A"]
-position = Vector2(0, 650)
+position = Vector2(0, 720)
 
 [node name="B" type="Node2D" parent="Entities/Spawner"]
 position = Vector2(684, 0)
@@ -86,7 +89,7 @@ script = ExtResource("4_3q3ru")
 [node name="A" type="Node2D" parent="Entities/Spawner/B"]
 
 [node name="B" type="Node2D" parent="Entities/Spawner/B"]
-position = Vector2(0, 650)
+position = Vector2(0, 720)
 
 [node name="Timer" type="Timer" parent="Entities"]
 wait_time = 2.0
@@ -94,59 +97,6 @@ autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Ui" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("6_1liys")
-
-[node name="Top" type="Control" parent="CanvasLayer/Ui"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Mid" type="Control" parent="CanvasLayer/Ui"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Bot" type="Control" parent="CanvasLayer/Ui"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="NotificationPopup" type="Control" parent="CanvasLayer/Ui"]
-custom_minimum_size = Vector2(0, 300)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Ui/NotificationPopup"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.392157)
-
-[node name="Label" type="Label" parent="CanvasLayer/Ui/NotificationPopup"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "CONSUME"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Ui" parent="CanvasLayer" instance=ExtResource("6_86i1h")]
 
 [connection signal="timeout" from="Entities/Timer" to="Entities" method="_on_timer_timeout"]
