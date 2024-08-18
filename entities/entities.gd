@@ -5,7 +5,9 @@ extends Node2D
 const GROWTH_SPEED = 3
 
 var entities = [
-	preload("res://entities/bird/bird.tscn")
+	preload("res://entities/bird/bird.tscn"),
+	preload("res://entities/red_blood_cell/red_blood_cell.tscn"),
+	preload("res://entities/white_blood_cell/white_blood_cell.tscn"),
 ]
 
 var growth_position = Vector2.ZERO

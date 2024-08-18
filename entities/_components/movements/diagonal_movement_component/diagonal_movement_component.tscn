@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfyntmg2qqc2s"]
+
+[ext_resource type="Script" path="res://entities/_components/movements/diagonal_movement_component/diagonal_movement_component.gd" id="1_157ci"]
+
+[node name="DiagonalMovementComponentMovementComponent" type="Node"]
+script = ExtResource("1_157ci")

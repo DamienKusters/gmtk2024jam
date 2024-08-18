@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmpfaq61qhpfj"]
+
+[ext_resource type="Shape2D" uid="uid://e5ldc488r0yr" path="res://resources/colliders/entity_collider.tres" id="1_q70om"]
+
+[node name="EntityGrabArea" type="Area2D" groups=["entity"]]
+monitoring = false
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = ExtResource("1_q70om")

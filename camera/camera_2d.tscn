@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct34rmjrpdnfv"]
+
+[ext_resource type="Script" path="res://camera_2d.gd" id="1_8sqrw"]
+
+[sub_resource type="Animation" id="Animation_dhwlv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vpk5c"]
+resource_name = "shake"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.133333, 0.166667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(10, 0), Vector2(0, 0), Vector2(-10, 0), Vector2(10, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b2pgm"]
+_data = {
+"RESET": SubResource("Animation_dhwlv"),
+"shake": SubResource("Animation_vpk5c")
+}
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2(0, -512)
+script = ExtResource("1_8sqrw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b2pgm")
+}

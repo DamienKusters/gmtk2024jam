@@ -1,4 +1,5 @@
-extends Sprite2D
+extends Node2D
+#TODO: make as a composition
 
 const GROWTH_SPEED = 3
 

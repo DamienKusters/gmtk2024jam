@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctdo50qeghewk"]
+[gd_scene load_steps=4 format=3 uid="uid://ctdo50qeghewk"]
 
 [ext_resource type="Theme" uid="uid://b758yjx3y8pnn" path="res://theme.tres" id="1_b3xyy"]
 [ext_resource type="Script" path="res://ui/ui.gd" id="2_y8im7"]
 [ext_resource type="Texture2D" uid="uid://faht8oaby07a" path="res://ui/dna.png" id="3_gjyii"]
-[ext_resource type="Texture2D" uid="uid://domramh4ht76n" path="res://ui/lives.png" id="4_d1r2g"]
 
 [node name="Ui" type="Control"]
 layout_mode = 3
@@ -14,6 +13,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_b3xyy")
 script = ExtResource("2_y8im7")
+
+[node name="Background" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.196078)
 
 [node name="Grid" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -31,6 +46,8 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="Grid/Top"]
 layout_mode = 2
 texture = ExtResource("3_gjyii")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="DnaScore" type="Label" parent="Grid/Top"]
 unique_name_in_owner = true
@@ -44,11 +61,3 @@ size_flags_vertical = 3
 [node name="Bot" type="HBoxContainer" parent="Grid"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Grid/Bot"]
-layout_mode = 2
-texture = ExtResource("4_d1r2g")
-
-[node name="Lives" type="Label" parent="Grid/Bot"]
-layout_mode = 2
-text = "100"

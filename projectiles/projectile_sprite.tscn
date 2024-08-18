@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://dex72e2d0mvh7"]
+
+[ext_resource type="Shader" path="res://shaders/projectile_shader.gdshader" id="1_isslj"]
+[ext_resource type="Texture2D" uid="uid://dclily7hswetn" path="res://icon.svg" id="2_esp5q"]
+[ext_resource type="Script" path="res://projectiles/projectile_sprite.gd" id="3_e1fat"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ennjk"]
+shader = ExtResource("1_isslj")
+shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/width = 10.0
+shader_parameter/pattern = 1
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="Animation" id="Animation_x0qts"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+
+[sub_resource type="Animation" id="Animation_x85mh"]
+resource_name = "pulse"
+length = 0.25
+loop_mode = 2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/width")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.05, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [10.0, 20.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ru3af"]
+_data = {
+"RESET": SubResource("Animation_x0qts"),
+"pulse": SubResource("Animation_x85mh")
+}
+
+[node name="ProjectileSprite" type="Sprite2D"]
+material = SubResource("ShaderMaterial_ennjk")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_esp5q")
+script = ExtResource("3_e1fat")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ru3af")
+}
+autoplay = "pulse"

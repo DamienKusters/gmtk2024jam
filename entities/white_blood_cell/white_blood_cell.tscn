@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8v4pkdc8p7b0"]
+
+[ext_resource type="Script" path="res://entities/white_blood_cell/white_blood_cell.gd" id="1_jwf87"]
+[ext_resource type="PackedScene" uid="uid://cfyntmg2qqc2s" path="res://entities/_components/movements/diagonal_movement_component/diagonal_movement_component.tscn" id="2_52nw0"]
+[ext_resource type="PackedScene" uid="uid://bmpfaq61qhpfj" path="res://entities/_components/entity_grab_area.tscn" id="3_6k5r6"]
+[ext_resource type="Texture2D" uid="uid://ltydm75ftbsd" path="res://entities/white_blood_cell/white_blood_cell.png" id="4_lw0ws"]
+
+[node name="WhiteBloodCell" type="Node2D"]
+script = ExtResource("1_jwf87")
+
+[node name="DiagonalMovementComponentMovementComponent" parent="." instance=ExtResource("2_52nw0")]
+
+[node name="EntityGrabArea" parent="." instance=ExtResource("3_6k5r6")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("4_lw0ws")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvs4ffugfcl18"]
+
+[ext_resource type="PackedScene" uid="uid://ct34rmjrpdnfv" path="res://camera/camera_2d.tscn" id="1_cppq1"]
+[ext_resource type="PackedScene" uid="uid://bfbuk5380yvww" path="res://kraken/kraken.tscn" id="2_b3621"]
+[ext_resource type="PackedScene" uid="uid://df0hvmgkfib8h" path="res://spawner/spawner.tscn" id="3_o5kib"]
+[ext_resource type="Script" path="res://entities/entities.gd" id="4_3hh2q"]
+[ext_resource type="PackedScene" uid="uid://ctdo50qeghewk" path="res://ui/ui.tscn" id="5_b403k"]
+
+[node name="CellStage" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Camera2D" parent="." instance=ExtResource("1_cppq1")]
+
+[node name="Kraken" parent="." instance=ExtResource("2_b3621")]
+unique_name_in_owner = true
+
+[node name="Spawner" parent="." instance=ExtResource("3_o5kib")]
+unique_name_in_owner = true
+
+[node name="Entities" type="Node2D" parent="."]
+script = ExtResource("4_3hh2q")
+
+[node name="Timer" type="Timer" parent="Entities"]
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Ui" parent="CanvasLayer" instance=ExtResource("5_b403k")]
+
+[connection signal="timeout" from="Entities/Timer" to="Entities" method="_on_timer_timeout"]

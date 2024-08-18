@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmhoidvyr163n"]
+
+[ext_resource type="Script" path="res://particles/projectile_particles.gd" id="1_th6cm"]
+
+[sub_resource type="Curve" id="Curve_cud2u"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="ProjectileParticles" type="CPUParticles2D"]
+lifetime = 0.25
+gravity = Vector2(0, 0)
+scale_amount_min = 30.0
+scale_amount_max = 30.0
+scale_amount_curve = SubResource("Curve_cud2u")
+color = Color(1, 1, 0, 1)
+script = ExtResource("1_th6cm")
