@@ -2,6 +2,8 @@ extends Node
 
 signal dna_updated
 
+var stage = 0
+
 const DNA_SCORE_HEIGHT_VALUE = 50
 
 var dna_score = 0:
