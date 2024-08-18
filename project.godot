@@ -24,6 +24,12 @@ Game="*res://game.gd"
 window/size/viewport_width=768
 window/size/viewport_height=1024
 
+[file_customization]
+
+folder_colors={
+"res://entities/": "red"
+}
+
 [global_group]
 
 tentacle="The player tentacle"

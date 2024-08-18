@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://ju6t4cd28ns0"]
+
+[ext_resource type="Script" path="res://entities/planet/planet.gd" id="1_kkilb"]
+[ext_resource type="PackedScene" uid="uid://cfyntmg2qqc2s" path="res://entities/_components/movements/diagonal_movement_component/diagonal_movement_component.tscn" id="2_ns6kc"]
+[ext_resource type="PackedScene" uid="uid://bmpfaq61qhpfj" path="res://entities/_components/entity_grab_area.tscn" id="3_cwi56"]
+[ext_resource type="Texture2D" uid="uid://dt5ee4qeto8re" path="res://entities/planet/planet_earth.png" id="4_djs3o"]
+
+[node name="Planet" type="Node2D"]
+script = ExtResource("1_kkilb")
+
+[node name="DiagonalMovementComponentMovementComponent" parent="." instance=ExtResource("2_ns6kc")]
+
+[node name="EntityGrabArea" parent="." instance=ExtResource("3_cwi56")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("4_djs3o")
