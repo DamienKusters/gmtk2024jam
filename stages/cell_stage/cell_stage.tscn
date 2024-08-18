@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvs4ffugfcl18"]
+[gd_scene load_steps=10 format=3 uid="uid://dvs4ffugfcl18"]
 
 [ext_resource type="Script" path="res://stages/cell_stage/cell_stage.gd" id="1_7l55k"]
 [ext_resource type="PackedScene" uid="uid://ct34rmjrpdnfv" path="res://camera/camera_2d.tscn" id="1_cppq1"]
 [ext_resource type="PackedScene" uid="uid://bfbuk5380yvww" path="res://kraken/kraken.tscn" id="2_b3621"]
+[ext_resource type="Script" path="res://background.gd" id="2_wwxut"]
 [ext_resource type="PackedScene" uid="uid://df0hvmgkfib8h" path="res://spawner/spawner.tscn" id="3_o5kib"]
 [ext_resource type="Script" path="res://entities/entities.gd" id="4_3hh2q"]
 [ext_resource type="PackedScene" uid="uid://ctdo50qeghewk" path="res://ui/ui.tscn" id="5_b403k"]
@@ -23,6 +24,7 @@ script = ExtResource("1_7l55k")
 autostart = true
 
 [node name="Background" type="Node2D" parent="."]
+script = ExtResource("2_wwxut")
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
 position = Vector2(0, -2502)
