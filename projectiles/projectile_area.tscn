@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://8wyilr565ijb"]
+[gd_scene load_steps=3 format=3 uid="uid://8wyilr565ijb"]
 
+[ext_resource type="Script" path="res://projectiles/projectile_area.gd" id="1_gtxmx"]
 [ext_resource type="Shape2D" uid="uid://c0w0dustt4uo2" path="res://resources/colliders/projectile_collider.tres" id="1_mcewt"]
 
 [node name="ProjectileArea" type="Area2D" groups=["projectile"]]
-monitoring = false
+monitorable = false
+script = ExtResource("1_gtxmx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = ExtResource("1_mcewt")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

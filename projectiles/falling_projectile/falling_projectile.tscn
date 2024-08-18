@@ -1,15 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://l0w1n8457hv1"]
+[gd_scene load_steps=6 format=3 uid="uid://bhxfvtlfj5vyd"]
 
 [ext_resource type="Script" path="res://projectiles/falling_projectile/falling_projectile.gd" id="1_dwtjd"]
-[ext_resource type="PackedScene" uid="uid://bmhoidvyr163n" path="res://particles/projectile_particles.tscn" id="2_4oc7j"]
-[ext_resource type="PackedScene" uid="uid://dex72e2d0mvh7" path="res://projectiles/projectile_sprite.tscn" id="3_nfolp"]
-[ext_resource type="PackedScene" uid="uid://8wyilr565ijb" path="res://projectiles/projectile_area.tscn" id="4_70kqb"]
+[ext_resource type="PackedScene" uid="uid://bmhoidvyr163n" path="res://particles/projectile_particles.tscn" id="2_hapwb"]
+[ext_resource type="PackedScene" uid="uid://dex72e2d0mvh7" path="res://projectiles/projectile_sprite.tscn" id="3_2babk"]
+[ext_resource type="PackedScene" uid="uid://8wyilr565ijb" path="res://projectiles/projectile_area.tscn" id="4_hd41c"]
+[ext_resource type="Script" path="res://projectiles/_components/movements/directional_movement_component/directional_movement_component.gd" id="5_1et1k"]
 
 [node name="FallingProjectile" type="Node2D"]
 script = ExtResource("1_dwtjd")
 
-[node name="ProjectileParticles" parent="." instance=ExtResource("2_4oc7j")]
+[node name="ProjectileParticles" parent="." instance=ExtResource("2_hapwb")]
 
-[node name="ProjectileSprite" parent="." instance=ExtResource("3_nfolp")]
+[node name="ProjectileSprite" parent="." instance=ExtResource("3_2babk")]
 
-[node name="ProjectileArea" parent="." instance=ExtResource("4_70kqb")]
+[node name="ProjectileArea" parent="." instance=ExtResource("4_hd41c")]
+
+[node name="DirectionalMovementComponent" type="Node" parent="."]
+script = ExtResource("5_1et1k")

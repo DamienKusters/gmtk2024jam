@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b71nxs0o2dsyp" path="res://entities/bird/bird.png" id="2_05i2w"]
 [ext_resource type="PackedScene" uid="uid://msm8sneqlnm" path="res://entities/_components/movements/horizontal_movement_component/horizontal_movement_component.tscn" id="2_yd1f8"]
 [ext_resource type="PackedScene" uid="uid://bmpfaq61qhpfj" path="res://entities/_components/entity_grab_area.tscn" id="4_fcatv"]
-[ext_resource type="Script" path="res://areas/tentacle_detect_area.gd" id="4_qyjek"]
+[ext_resource type="PackedScene" uid="uid://c20rs7moh5mrj" path="res://areas/tentacle_detect_area.tscn" id="5_cnoys"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7n3rk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnor6"]
 size = Vector2(20, 1000)
 
 [node name="Bird" type="Node2D"]
@@ -20,12 +20,9 @@ script = ExtResource("1_6oewt")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_05i2w")
 
-[node name="TentacleDetectArea" type="Area2D" parent="."]
-monitorable = false
-script = ExtResource("4_qyjek")
+[node name="TentacleDetectArea" parent="." instance=ExtResource("5_cnoys")]
 
 [node name="Collider" type="CollisionShape2D" parent="TentacleDetectArea"]
-position = Vector2(0, 561)
-shape = SubResource("RectangleShape2D_7n3rk")
-
-[connection signal="area_entered" from="TentacleDetectArea" to="TentacleDetectArea" method="_on_area_entered"]
+position = Vector2(0, 312)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_lnor6")

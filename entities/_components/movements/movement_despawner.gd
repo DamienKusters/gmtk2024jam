@@ -10,7 +10,7 @@ var parent: Node2D
 func _ready() -> void:
 	parent = get_parent()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if parent.position.x >= RIGHT_DEADZONE:
 		parent.queue_free()
 	elif parent.position.x <= LEFT_DEADZONE:

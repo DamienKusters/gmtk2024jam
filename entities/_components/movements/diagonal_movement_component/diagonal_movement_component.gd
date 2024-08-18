@@ -22,6 +22,5 @@ func _process(delta: float) -> void:
 	parent.position += speed
 	super._process(delta)
 
-
 func _get_random_angle() -> float:
 	return randf_range(MIN_ANGLE, MAX_ANGLE)
