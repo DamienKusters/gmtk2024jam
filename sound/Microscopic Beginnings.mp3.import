@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bve6g2oxc88kx"
+path="res://.godot/imported/Microscopic Beginnings.mp3-0de6172bf318f9bd8c6007cda5483840.mp3str"
+
+[deps]
+
+source_file="res://sound/Microscopic Beginnings.mp3"
+dest_files=["res://.godot/imported/Microscopic Beginnings.mp3-0de6172bf318f9bd8c6007cda5483840.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

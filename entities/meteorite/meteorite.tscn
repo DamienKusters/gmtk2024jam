@@ -12,7 +12,7 @@ script = ExtResource("1_wkaik")
 SPEED = 800
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.57, 0.57)
+scale = Vector2(0.061, 0.061)
 texture = ExtResource("3_2e7ar")
 
 [node name="EntityGrabArea" parent="." instance=ExtResource("4_7ag2o")]

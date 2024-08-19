@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://entities/whale/whale.gd" id="1_3kvfi"]
 [ext_resource type="PackedScene" uid="uid://msm8sneqlnm" path="res://entities/_components/movements/horizontal_movement_component/horizontal_movement_component.tscn" id="2_booux"]
 [ext_resource type="PackedScene" uid="uid://bmpfaq61qhpfj" path="res://entities/_components/entity_grab_area.tscn" id="3_ngl6u"]
-[ext_resource type="Texture2D" uid="uid://dhftk3bu7q5bw" path="res://entities/whale/whale.png" id="4_my3i3"]
+[ext_resource type="Texture2D" uid="uid://dfdgdlyvg1r1q" path="res://entities/whale/whale.png" id="4_my3i3"]
 
 [node name="Whale" type="Node2D"]
 script = ExtResource("1_3kvfi")
@@ -13,5 +13,6 @@ script = ExtResource("1_3kvfi")
 [node name="EntityGrabArea" parent="." instance=ExtResource("3_ngl6u")]
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.93617, 0.93617)
+position = Vector2(-1, 0)
+scale = Vector2(0.0930233, 0.0930233)
 texture = ExtResource("4_my3i3")

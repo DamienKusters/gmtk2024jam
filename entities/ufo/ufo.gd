@@ -6,6 +6,9 @@ func _ready() -> void:
 	dna_score = 3 # OVERRIDE
 	weight = 3 # OVERRIDE
 	particle_color_eat = Color.LIME_GREEN #Alien blood
+	if $TentacleXMovementComponent:
+		randomize()
+		$TentacleXMovementComponent.SPEED = randi_range(250, 320)
 
 func emit_projectile():
 	if grabbed:

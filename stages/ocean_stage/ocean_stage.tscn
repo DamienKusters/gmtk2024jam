@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnubx0ihljvfy"]
+[gd_scene load_steps=13 format=3 uid="uid://bnubx0ihljvfy"]
 
 [ext_resource type="Script" path="res://stages/ocean_stage/ocean_stage.gd" id="1_o3jte"]
+[ext_resource type="Script" path="res://soundplayer.gd" id="2_hnmrw"]
 [ext_resource type="Texture2D" uid="uid://c5vjhcc6nfuk7" path="res://stages/ocean_stage/ocean.png" id="2_v5lxm"]
 [ext_resource type="Script" path="res://background.gd" id="3_ayvqj"]
 [ext_resource type="Texture2D" uid="uid://dxb21kenhvb6t" path="res://stages/ocean_stage/fish_scoal.png" id="4_373ic"]
@@ -26,6 +27,9 @@ script = ExtResource("1_o3jte")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Soundplayer" type="Node" parent="."]
+script = ExtResource("2_hnmrw")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_v5lxm")

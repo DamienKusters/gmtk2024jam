@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce4hinqcypbwx"]
+[gd_scene load_steps=4 format=3 uid="uid://ce4hinqcypbwx"]
 
+[ext_resource type="Texture2D" uid="uid://c06om87on5on8" path="res://particles/star.png" id="1_0h428"]
 [ext_resource type="Script" path="res://particles/self_destructing_particles.gd" id="1_wjuao"]
 
 [sub_resource type="Gradient" id="Gradient_8kg1l"]
@@ -12,6 +13,7 @@ amount = 20
 lifetime = 1.5
 one_shot = true
 explosiveness = 0.9
+texture = ExtResource("1_0h428")
 emission_shape = 1
 emission_sphere_radius = 20.0
 direction = Vector2(0, -1)
@@ -19,8 +21,8 @@ initial_velocity_min = 300.0
 initial_velocity_max = 600.0
 angular_velocity_min = -100.0
 angular_velocity_max = 100.0
-scale_amount_min = 5.0
-scale_amount_max = 10.0
+scale_amount_min = 0.05
+scale_amount_max = 0.2
 color = Color(1, 0, 0, 1)
 color_ramp = SubResource("Gradient_8kg1l")
 script = ExtResource("1_wjuao")

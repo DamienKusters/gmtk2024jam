@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cevwb70aapxg7"]
+[gd_scene load_steps=13 format=3 uid="uid://cevwb70aapxg7"]
 
 [ext_resource type="Script" path="res://stages/solar_stage/solar_stage.gd" id="1_ho6sa"]
 [ext_resource type="Script" path="res://background.gd" id="2_3ihr0"]
+[ext_resource type="Script" path="res://soundplayer.gd" id="2_a2pfn"]
 [ext_resource type="Texture2D" uid="uid://c06om87on5on8" path="res://particles/star.png" id="3_xjbgf"]
 [ext_resource type="PackedScene" uid="uid://ct34rmjrpdnfv" path="res://camera/camera_2d.tscn" id="4_uxyce"]
 [ext_resource type="PackedScene" uid="uid://bfbuk5380yvww" path="res://kraken/kraken.tscn" id="5_q5uxa"]
@@ -31,6 +32,9 @@ script = ExtResource("1_ho6sa")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Soundplayer" type="Node" parent="."]
+script = ExtResource("2_a2pfn")
 
 [node name="Background" type="Node2D" parent="."]
 script = ExtResource("2_3ihr0")

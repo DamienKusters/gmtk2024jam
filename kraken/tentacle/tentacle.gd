@@ -26,11 +26,13 @@ func _input(_event):
 		if grabbed_entity:
 			grabbed_entity.grabbed = true
 		$Tentacle.texture = tentacle_closed
+		Game.sound.emit(&'grab')
 	elif _event is InputEventMouseButton and _event.is_action_released("grab"):
 		if grabbed_entity and is_instance_valid(grabbed_entity):
 			grabbed_entity.grabbed = false
 		grabbed_entity = null
 		$Tentacle.texture = tentacle_open
+		Game.sound.emit(&'grab')
 		
 func grab_entity() -> Entity:
 	for area in $Grabber.get_overlapping_areas():

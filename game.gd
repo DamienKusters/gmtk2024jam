@@ -12,6 +12,8 @@ signal to_next_stage
 signal black_out_screen
 signal screen_blacked_out
 
+signal sound
+
 var dna_score = 0:
 	set(value):
 		dna_score = clampi(value, 0, 100)

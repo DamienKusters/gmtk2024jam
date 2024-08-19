@@ -2,6 +2,7 @@ extends Node2D
 class_name Kraken
 
 signal entity_eaten
+signal damaged
 
 @onready var previous_dna_score = Game.dna_score
 
@@ -10,6 +11,7 @@ func _ready() -> void:
 
 func play_damage_animation():
 	$AnimationPlayer.play("damage")
+	damaged.emit()
 
 func _dna_updated(dna_score: int):
 	if previous_dna_score > dna_score: # You took damage

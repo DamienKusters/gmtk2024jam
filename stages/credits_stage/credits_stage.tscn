@@ -1,0 +1,125 @@
+[gd_scene load_steps=12 format=3 uid="uid://cgnefufh7i1pd"]
+
+[ext_resource type="Script" path="res://stages/credits_stage/credits_stage.gd" id="1_3rdcn"]
+[ext_resource type="Script" path="res://soundplayer.gd" id="2_otv8g"]
+[ext_resource type="Script" path="res://background.gd" id="3_oal0q"]
+[ext_resource type="Theme" uid="uid://b758yjx3y8pnn" path="res://theme.tres" id="4_4lp46"]
+[ext_resource type="Texture2D" uid="uid://b81yrmnpd5bbo" path="res://ui/gmtk2024-logo.png" id="5_38f0j"]
+[ext_resource type="PackedScene" uid="uid://ct34rmjrpdnfv" path="res://camera/camera_2d.tscn" id="6_k2e8a"]
+[ext_resource type="PackedScene" uid="uid://bfbuk5380yvww" path="res://kraken/kraken.tscn" id="7_200nr"]
+[ext_resource type="PackedScene" uid="uid://df0hvmgkfib8h" path="res://spawner/spawner.tscn" id="8_82fom"]
+[ext_resource type="Script" path="res://entities/entities.gd" id="9_ym6im"]
+
+[sub_resource type="Gradient" id="Gradient_4awtg"]
+colors = PackedColorArray(0.444897, 0.436354, 0.289691, 1, 0.823529, 0.537255, 0.435294, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h3lhh"]
+gradient = SubResource("Gradient_4awtg")
+width = 800
+height = 5000
+fill_from = Vector2(1, 1)
+
+[node name="CreditsStage" type="Node2D"]
+script = ExtResource("1_3rdcn")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Soundplayer" type="Node" parent="."]
+script = ExtResource("2_otv8g")
+
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("3_oal0q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(0, -3045.5)
+scale = Vector2(1, 1.2174)
+texture = SubResource("GradientTexture2D_h3lhh")
+
+[node name="Control" type="Control" parent="Background"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -386.0
+offset_top = -6087.0
+offset_right = 387.0
+offset_bottom = -421.0
+theme = ExtResource("4_4lp46")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 2
+
+[node name="Label3" type="Label" parent="Background/Control/VBoxContainer"]
+layout_mode = 2
+text = "Music:
+Jochem van Hout"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="Background/Control/VBoxContainer"]
+layout_mode = 2
+text = "Kraken, Objects & Enemies:
+Floris Peeters"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Background/Control/VBoxContainer"]
+layout_mode = 2
+text = "Made by:
+Damien Kusters"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Background/Control/VBoxContainer"]
+layout_mode = 2
+text = "---"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Background/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background/Control/VBoxContainer/Control"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -82.2656
+offset_right = 150.0
+offset_bottom = 82.2656
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_38f0j")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="Background/Control/VBoxContainer"]
+layout_mode = 2
+text = "Thanks for playing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" parent="." instance=ExtResource("6_k2e8a")]
+
+[node name="Kraken" parent="." instance=ExtResource("7_200nr")]
+unique_name_in_owner = true
+
+[node name="Spawner" parent="." instance=ExtResource("8_82fom")]
+unique_name_in_owner = true
+
+[node name="Entities" type="Node2D" parent="."]
+script = ExtResource("9_ym6im")
+
+[connection signal="timeout" from="Timer" to="." method="entity_tick"]

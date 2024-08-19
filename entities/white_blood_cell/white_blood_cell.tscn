@@ -17,7 +17,7 @@ script = ExtResource("1_jwf87")
 [node name="EntityGrabArea" parent="." instance=ExtResource("3_6k5r6")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
+scale = Vector2(0.061, 0.061)
 texture = ExtResource("4_lw0ws")
 
 [node name="TentacleDetectArea" parent="." instance=ExtResource("5_sxm8q")]

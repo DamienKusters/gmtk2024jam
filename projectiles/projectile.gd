@@ -1,7 +1,7 @@
 extends Node2D
 class_name Projectile
 
-var dna_damage = 1
+var dna_damage = 2
 var timeout_timer: Timer
 
 func _ready() -> void:

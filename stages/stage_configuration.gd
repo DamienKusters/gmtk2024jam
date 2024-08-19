@@ -4,6 +4,7 @@ class_name StageConfiguration
 @onready var entities_node = $Entities
 @onready var spawner_node = $Spawner
 @onready var kraken: Kraken = $Kraken
+@onready var sound_player = $Soundplayer
 
 # TODO: stage progresion scaling
 # dna score = 0 - 100%
@@ -13,6 +14,10 @@ var maximum_dangerous_entities = .9 #90% spawn chance when dna score = 100%
 
 var harmless_entities = []
 var dangerous_entities = []
+
+func _ready() -> void:
+	if kraken and sound_player:
+		kraken.damaged.connect(func(): sound_player.play_random_pitch(&"damage"))
 
 func entity_tick():
 	var entity: Entity = get_entity().instantiate()

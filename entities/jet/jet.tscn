@@ -14,5 +14,5 @@ SPEED = 600
 [node name="EntityGrabArea" parent="." instance=ExtResource("3_kostl")]
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.93617, 0.93617)
+scale = Vector2(0.0918836, 0.0918836)
 texture = ExtResource("4_lniiy")

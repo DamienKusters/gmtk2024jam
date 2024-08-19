@@ -18,7 +18,7 @@ func spawn_particles(particles: PackedScene, entity: Entity):
 	p.color = entity.particle_color_eat
 	add_child(p)
 	
-func _update_mouth_texture(area: Area2D) -> void:
+func _update_mouth_texture(_area: Area2D) -> void:
 	$Mouth.texture = mouth_closed if !_entity_is_nearby() else mouth_open
 
 func _entity_is_nearby():
