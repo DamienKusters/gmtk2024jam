@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmurnwcblx0jb"]
+
+[ext_resource type="Script" path="res://entities/jet/jet.gd" id="1_8wqhh"]
+[ext_resource type="PackedScene" uid="uid://msm8sneqlnm" path="res://entities/_components/movements/horizontal_movement_component/horizontal_movement_component.tscn" id="2_qmhsc"]
+[ext_resource type="PackedScene" uid="uid://bmpfaq61qhpfj" path="res://entities/_components/entity_grab_area.tscn" id="3_kostl"]
+[ext_resource type="Texture2D" uid="uid://bgiwl386vrl4p" path="res://entities/jet/jet.png" id="4_lniiy"]
+
+[node name="Jet" type="Node2D"]
+script = ExtResource("1_8wqhh")
+
+[node name="HorizontalMovementComponentMovementComponent" parent="." instance=ExtResource("2_qmhsc")]
+SPEED = 600
+
+[node name="EntityGrabArea" parent="." instance=ExtResource("3_kostl")]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.93617, 0.93617)
+texture = ExtResource("4_lniiy")

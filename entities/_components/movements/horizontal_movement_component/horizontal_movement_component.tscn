@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://entities/_components/movements/horizontal_movement_component/horizontal_movement_component.gd" id="1_o7mcc"]
 
-[node name="HorizontalMovementComponentMovementComponent" type="Node"]
+[node name="HorizontalMovementComponent" type="Node"]
 script = ExtResource("1_o7mcc")

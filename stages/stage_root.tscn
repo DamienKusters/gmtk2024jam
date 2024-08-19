@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://me55for2n05a"]
+
+[ext_resource type="Script" path="res://stages/stage_root.gd" id="1_gqmtt"]
+[ext_resource type="PackedScene" uid="uid://ctdo50qeghewk" path="res://ui/ui.tscn" id="2_beyhn"]
+
+[node name="StageRoot" type="Node"]
+script = ExtResource("1_gqmtt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Ui" parent="CanvasLayer" instance=ExtResource("2_beyhn")]

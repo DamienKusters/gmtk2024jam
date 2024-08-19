@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctdo50qeghewk"]
+[gd_scene load_steps=6 format=3 uid="uid://ctdo50qeghewk"]
 
 [ext_resource type="Theme" uid="uid://b758yjx3y8pnn" path="res://theme.tres" id="1_b3xyy"]
 [ext_resource type="Script" path="res://ui/ui.gd" id="2_y8im7"]
 [ext_resource type="Texture2D" uid="uid://faht8oaby07a" path="res://ui/dna.png" id="3_gjyii"]
+[ext_resource type="Script" path="res://ui/stage_blinker.gd" id="4_2x3ac"]
+[ext_resource type="Texture2D" uid="uid://co5183wdb3kp6" path="res://ui/stages/cell_stage.png" id="4_xltet"]
 
 [node name="Ui" type="Control"]
 layout_mode = 3
@@ -61,3 +63,54 @@ size_flags_vertical = 3
 [node name="Bot" type="HBoxContainer" parent="Grid"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+
+[node name="Foreground" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StageBlinker" type="ColorRect" parent="Foreground"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("4_2x3ac")
+
+[node name="Label" type="Label" parent="Foreground/StageBlinker"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Cell Stage"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Foreground/StageBlinker"]
+self_modulate = Color(1, 1, 1, 0.117647)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = -80.0
+offset_right = -58.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_xltet")
+expand_mode = 4
+stretch_mode = 5

@@ -109,7 +109,6 @@ texture = ExtResource("3_mx7gu")
 
 [node name="Grabber" type="Area2D" parent="Tentacle"]
 position = Vector2(-1.90735e-06, 0)
-scale = Vector2(1, 1)
 monitorable = false
 
 [node name="Collider" type="CollisionShape2D" parent="Tentacle/Grabber"]
@@ -117,7 +116,6 @@ shape = ExtResource("3_kqj22")
 
 [node name="Collision" type="Area2D" parent="Tentacle" groups=["tentacle"]]
 position = Vector2(-1.90735e-06, 0)
-scale = Vector2(1, 1)
 monitoring = false
 
 [node name="Collider" type="CollisionShape2D" parent="Tentacle/Collision"]

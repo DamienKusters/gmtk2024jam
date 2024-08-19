@@ -1,7 +1,7 @@
 extends MovementDespawner
 class_name HorizontalMovementComponent
 
-const SPEED = 300
+@export var SPEED = 300
 
 var facing_right = true
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://l0w1n8457hv1"]
+[gd_scene load_steps=7 format=3 uid="uid://l0w1n8457hv1"]
 
 [ext_resource type="Script" path="res://projectiles/vector_projectile/vector_projectile.gd" id="1_2wpmf"]
 [ext_resource type="PackedScene" uid="uid://bmhoidvyr163n" path="res://particles/projectile_particles.tscn" id="2_cx7tx"]
 [ext_resource type="PackedScene" uid="uid://dex72e2d0mvh7" path="res://projectiles/projectile_sprite.tscn" id="3_yfrxy"]
+[ext_resource type="Texture2D" uid="uid://bf7aiuh4glb4k" path="res://projectiles/projectile.png" id="4_g868v"]
 [ext_resource type="PackedScene" uid="uid://8wyilr565ijb" path="res://projectiles/projectile_area.tscn" id="4_rx620"]
 [ext_resource type="Script" path="res://projectiles/_components/movements/directional_movement_component/directional_movement_component.gd" id="5_y2j2g"]
 
@@ -10,8 +11,13 @@
 script = ExtResource("1_2wpmf")
 
 [node name="ProjectileParticles" parent="." instance=ExtResource("2_cx7tx")]
+texture = ExtResource("4_g868v")
+scale_amount_min = 0.5
+scale_amount_max = 0.5
 
 [node name="ProjectileSprite" parent="." instance=ExtResource("3_yfrxy")]
+scale = Vector2(0.58, 0.58)
+texture = ExtResource("4_g868v")
 
 [node name="ProjectileArea" parent="." instance=ExtResource("4_rx620")]
 

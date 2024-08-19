@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://bnubx0ihljvfy"]
+
+[ext_resource type="Script" path="res://stages/ocean_stage/ocean_stage.gd" id="1_o3jte"]
+[ext_resource type="Texture2D" uid="uid://c5vjhcc6nfuk7" path="res://stages/ocean_stage/ocean.png" id="2_v5lxm"]
+[ext_resource type="Script" path="res://background.gd" id="3_ayvqj"]
+[ext_resource type="Texture2D" uid="uid://dxb21kenhvb6t" path="res://stages/ocean_stage/fish_scoal.png" id="4_373ic"]
+[ext_resource type="PackedScene" uid="uid://ct34rmjrpdnfv" path="res://camera/camera_2d.tscn" id="4_muy0c"]
+[ext_resource type="PackedScene" uid="uid://bfbuk5380yvww" path="res://kraken/kraken.tscn" id="5_4heti"]
+[ext_resource type="PackedScene" uid="uid://df0hvmgkfib8h" path="res://spawner/spawner.tscn" id="6_fatff"]
+[ext_resource type="Script" path="res://entities/entities.gd" id="7_nf2h0"]
+
+[sub_resource type="Gradient" id="Gradient_r1ned"]
+offsets = PackedFloat32Array(0, 0.448052, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.184314, 0.278431, 0.486275, 1, 0.74902, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f7fxn"]
+gradient = SubResource("Gradient_r1ned")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_poqy7"]
+offsets = PackedFloat32Array(0, 0.346667, 0.68, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="OceanStage" type="Node2D"]
+script = ExtResource("1_o3jte")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_v5lxm")
+offset = Vector2(0, -2500)
+script = ExtResource("3_ayvqj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+show_behind_parent = true
+position = Vector2(-4.50003, -3026.5)
+scale = Vector2(12.6719, 94.1719)
+texture = SubResource("GradientTexture2D_f7fxn")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background"]
+show_behind_parent = true
+position = Vector2(718, -3036)
+lifetime = 10.0
+local_coords = true
+texture = ExtResource("4_373ic")
+emission_shape = 3
+emission_rect_extents = Vector2(700, 3000)
+direction = Vector2(-1, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.2
+scale_amount_max = 0.8
+color = Color(1, 1, 1, 0.0588235)
+color_ramp = SubResource("Gradient_poqy7")
+
+[node name="Camera2D" parent="." instance=ExtResource("4_muy0c")]
+
+[node name="Kraken" parent="." instance=ExtResource("5_4heti")]
+unique_name_in_owner = true
+
+[node name="Spawner" parent="." instance=ExtResource("6_fatff")]
+unique_name_in_owner = true
+
+[node name="Entities" type="Node2D" parent="."]
+script = ExtResource("7_nf2h0")
+
+[connection signal="timeout" from="Timer" to="." method="entity_tick"]

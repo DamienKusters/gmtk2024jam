@@ -1,6 +1,8 @@
 extends Node2D
 class_name Entity
 
+@export var tentacle: Node2D
+
 var projectile = null # Not used by non-dangerous entities
 
 var dna_score = 1

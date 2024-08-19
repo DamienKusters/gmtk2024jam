@@ -3,6 +3,7 @@ class_name StageConfiguration
 
 @onready var entities_node = $Entities
 @onready var spawner_node = $Spawner
+@onready var kraken: Kraken = $Kraken
 
 # TODO: stage progresion scaling
 # dna score = 0 - 100%
@@ -14,7 +15,8 @@ var harmless_entities = []
 var dangerous_entities = []
 
 func entity_tick():
-	var entity = get_entity().instantiate()
+	var entity: Entity = get_entity().instantiate()
+	entity.tentacle = kraken.get_tentacle()
 	entity.position = spawner_node.get_random_spawn_point() - entities_node.position
 	entities_node.add_child(entity)
 

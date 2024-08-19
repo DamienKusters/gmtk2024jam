@@ -6,6 +6,7 @@ class_name WhiteBloodCellEntity
 var projectile_emitted = false
 
 func _ready() -> void:
+	dna_score = 2
 	projectile = preload("res://projectiles/vector_projectile/vector_projectile.tscn")
 	particle_color_eat = Color.WHITE_SMOKE
 	if area_tentacle:

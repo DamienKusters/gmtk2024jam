@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4sped28f6dbk"]
+
+[ext_resource type="Script" path="res://entities/chopper/chopper.gd" id="1_vved1"]
+[ext_resource type="PackedScene" uid="uid://bb5epsxe5x5ox" path="res://entities/_components/movements/tentacle_x_movement_component/tentacle_x_movement_component.tscn" id="2_qoonv"]
+[ext_resource type="PackedScene" uid="uid://bmpfaq61qhpfj" path="res://entities/_components/entity_grab_area.tscn" id="3_cidqb"]
+[ext_resource type="Texture2D" uid="uid://bjpu7fib3y3h6" path="res://entities/chopper/chopper.png" id="4_ma1nl"]
+
+[node name="Chopper" type="Node2D"]
+script = ExtResource("1_vved1")
+
+[node name="TentacleXMovementComponent" parent="." instance=ExtResource("2_qoonv")]
+
+[node name="EntityGrabArea" parent="." instance=ExtResource("3_cidqb")]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("4_ma1nl")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="emit_projectile"]

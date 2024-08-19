@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb5epsxe5x5ox"]
+
+[ext_resource type="Script" path="res://entities/_components/movements/tentacle_x_movement_component/tentacle_x_movement_component.gd" id="1_705hm"]
+
+[node name="TentacleXMovementComponent" type="Node"]
+script = ExtResource("1_705hm")
