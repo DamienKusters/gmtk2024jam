@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4gwpa6p4s1pb"]
+[gd_scene load_steps=12 format=3 uid="uid://b4gwpa6p4s1pb"]
 
 [ext_resource type="Script" path="res://stages/civ_stage/civ_stage.gd" id="1_bsn0o"]
 [ext_resource type="Script" path="res://background.gd" id="2_22dkr"]
 [ext_resource type="Texture2D" uid="uid://3kh2dsfy0oug" path="res://stages/civ_stage/bg.png" id="3_qj5x8"]
 [ext_resource type="PackedScene" uid="uid://ct34rmjrpdnfv" path="res://camera/camera_2d.tscn" id="4_33kjl"]
+[ext_resource type="Texture2D" uid="uid://kyramesqys3m" path="res://entities/bird/dropping.png" id="4_888aw"]
 [ext_resource type="PackedScene" uid="uid://bfbuk5380yvww" path="res://kraken/kraken.tscn" id="5_e46m7"]
 [ext_resource type="PackedScene" uid="uid://df0hvmgkfib8h" path="res://spawner/spawner.tscn" id="6_a774h"]
 [ext_resource type="Script" path="res://entities/entities.gd" id="7_04eaf"]
@@ -17,6 +18,10 @@ gradient = SubResource("Gradient_4awtg")
 width = 800
 height = 5000
 fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_mg26k"]
+offsets = PackedFloat32Array(0, 0.346667, 0.68, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="CivStage" type="Node2D"]
 script = ExtResource("1_bsn0o")
@@ -35,6 +40,24 @@ texture = SubResource("GradientTexture2D_h3lhh")
 [node name="Sprite2D2" type="Sprite2D" parent="Background"]
 position = Vector2(0, -2500)
 texture = ExtResource("3_qj5x8")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background"]
+position = Vector2(4, -3036)
+lifetime = 20.0
+local_coords = true
+texture = ExtResource("4_888aw")
+emission_shape = 3
+emission_rect_extents = Vector2(700, 2000)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 20.0
+angular_velocity_min = -2.0
+angular_velocity_max = 2.0
+scale_amount_min = 2.0
+scale_amount_max = 8.0
+color = Color(1, 1, 1, 0.254902)
+color_ramp = SubResource("Gradient_mg26k")
 
 [node name="Camera2D" parent="." instance=ExtResource("4_33kjl")]
 
