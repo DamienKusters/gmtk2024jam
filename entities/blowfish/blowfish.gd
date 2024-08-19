@@ -7,4 +7,6 @@ func _ready() -> void:
 	particle_color_eat = Color.SANDY_BROWN
 
 func emit_projectile():
+	if grabbed:
+		return
 	get_parent().call_deferred("add_child", instantiate_projectile())

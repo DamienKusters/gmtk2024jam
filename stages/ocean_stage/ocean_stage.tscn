@@ -41,6 +41,7 @@ texture = SubResource("GradientTexture2D_f7fxn")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Background"]
 show_behind_parent = true
 position = Vector2(718, -3036)
+amount = 15
 lifetime = 10.0
 local_coords = true
 texture = ExtResource("4_373ic")

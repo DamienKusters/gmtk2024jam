@@ -36,7 +36,25 @@ var loaded_stage
 func _ready() -> void:
 	Game.to_next_stage.connect(next_stage)
 	Game.screen_blacked_out.connect(load_stage)
-	switch_stage(3) # TEST: load cell stage
+	switch_stage(0) # TEST: load cell stage
+
+var keys = [
+	Input.is_action_pressed("1"),
+	Input.is_action_pressed("2"),
+	Input.is_action_pressed("3"),
+	Input.is_action_pressed("4"),
+]
+func _process(delta: float) -> void:
+	var i = 0
+	for key in [
+		Input.is_action_pressed("1"),
+		Input.is_action_pressed("2"),
+		Input.is_action_pressed("3"),
+		Input.is_action_pressed("4"),
+	]:
+		if key:
+			switch_stage(i) # TEST
+		i += 1
 
 func next_stage(): # Helper function
 	switch_stage(stage_index + 1)
