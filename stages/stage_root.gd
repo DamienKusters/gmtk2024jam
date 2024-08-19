@@ -13,7 +13,7 @@ var stages = [
 		"Ocean Stage",
 		preload("res://ui/stages/ocean_stage.png"),
 		preload("res://stages/ocean_stage/ocean_stage.tscn"),
-		preload("res://sound/Microscopic Beginnings.mp3"),
+		preload("res://sound/AquaticAura.mp3"),
 	),
 	StageModel.new(
 		"Civilisation Stage",

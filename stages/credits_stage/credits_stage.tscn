@@ -64,8 +64,8 @@ vertical_alignment = 1
 
 [node name="Label6" type="Label" parent="Background/Control/VBoxContainer"]
 layout_mode = 2
-text = "Kraken, Objects & Enemies:
-Floris Peeters"
+text = "Art:
+Floris Peters"
 horizontal_alignment = 1
 vertical_alignment = 1
 

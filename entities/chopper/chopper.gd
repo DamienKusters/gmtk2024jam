@@ -6,6 +6,9 @@ func _ready() -> void:
 	dna_score = 2 # OVERRIDE
 	weight = 3 # OVERRIDE
 	particle_color_eat = Color.DARK_OLIVE_GREEN
+	if $TentacleXMovementComponent:
+		randomize()
+		$TentacleXMovementComponent.SPEED = randi_range(150, 200)
 
 func _process(_delta: float) -> void:
 	$Sprite.flip_h = (tentacle.position.x < global_position.x)
