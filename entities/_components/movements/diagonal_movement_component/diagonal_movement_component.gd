@@ -1,7 +1,7 @@
 extends MovementDespawner
 class_name DiagonalMovementComponent
 
-const SPEED = 300
+@export var SPEED = 300
 const X_DEADZONE = 1000
 
 const MIN_ANGLE = -45

@@ -7,4 +7,5 @@ func _init() -> void:
 	]
 	dangerous_entities = [
 		preload("res://entities/chopper/chopper.tscn"), # DANGEROUS
+		preload("res://entities/drone/drone.tscn"), # DANGEROUS
 	]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvs4ffugfcl18"]
+[gd_scene load_steps=13 format=3 uid="uid://dvs4ffugfcl18"]
 
 [ext_resource type="Script" path="res://stages/cell_stage/cell_stage.gd" id="1_7l55k"]
 [ext_resource type="PackedScene" uid="uid://ct34rmjrpdnfv" path="res://camera/camera_2d.tscn" id="1_cppq1"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://df0hvmgkfib8h" path="res://spawner/spawner.tscn" id="3_o5kib"]
 [ext_resource type="Texture2D" uid="uid://faht8oaby07a" path="res://ui/dna.png" id="3_saj4v"]
 [ext_resource type="Script" path="res://entities/entities.gd" id="4_3hh2q"]
+[ext_resource type="Texture2D" uid="uid://c06om87on5on8" path="res://particles/star.png" id="4_f3602"]
 
 [sub_resource type="Gradient" id="Gradient_4awtg"]
 colors = PackedColorArray(0.443137, 0.411765, 0.619608, 1, 1, 0.74914, 0.99965, 1)
@@ -18,6 +19,10 @@ height = 5000
 fill_from = Vector2(1, 1)
 
 [sub_resource type="Gradient" id="Gradient_234rx"]
+offsets = PackedFloat32Array(0, 0.346667, 0.68, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_b6oqf"]
 offsets = PackedFloat32Array(0, 0.346667, 0.68, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
@@ -49,6 +54,21 @@ angular_velocity_max = 10.0
 scale_amount_max = 30.0
 color = Color(1, 1, 1, 0.0588235)
 color_ramp = SubResource("Gradient_234rx")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Background"]
+position = Vector2(4, -3036)
+amount = 30
+lifetime = 10.0
+local_coords = true
+texture = ExtResource("4_f3602")
+emission_shape = 3
+emission_rect_extents = Vector2(700, 3000)
+direction = Vector2(-1, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+scale_amount_max = 10.0
+color = Color(1, 1, 1, 0.0588235)
+color_ramp = SubResource("Gradient_b6oqf")
 
 [node name="Camera2D" parent="." instance=ExtResource("1_cppq1")]
 

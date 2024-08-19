@@ -13,6 +13,8 @@ var particle_color_eat = Color.RED
 #TODO: sound_effect_eat
 #TODO: sound_effect_grab
 
+var grabbed = false
+
 func eat():
 	Game.dna_score += dna_score
 	queue_free()

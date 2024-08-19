@@ -1,17 +1,24 @@
 [gd_scene load_steps=5 format=3 uid="uid://ju6t4cd28ns0"]
 
 [ext_resource type="Script" path="res://entities/ufo/ufo.gd" id="1_iyvm2"]
-[ext_resource type="PackedScene" uid="uid://cfyntmg2qqc2s" path="res://entities/_components/movements/diagonal_movement_component/diagonal_movement_component.tscn" id="2_ns6kc"]
+[ext_resource type="PackedScene" uid="uid://bb5epsxe5x5ox" path="res://entities/_components/movements/tentacle_x_movement_component/tentacle_x_movement_component.tscn" id="2_aeag1"]
 [ext_resource type="PackedScene" uid="uid://bmpfaq61qhpfj" path="res://entities/_components/entity_grab_area.tscn" id="3_cwi56"]
 [ext_resource type="Texture2D" uid="uid://dupm0t0fhgjyy" path="res://entities/ufo/space_ship.png" id="4_vl6r8"]
 
 [node name="Ufo" type="Node2D"]
 script = ExtResource("1_iyvm2")
 
-[node name="DiagonalMovementComponentMovementComponent" parent="." instance=ExtResource("2_ns6kc")]
+[node name="TentacleXMovementComponent" parent="." instance=ExtResource("2_aeag1")]
+SPEED = 300
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.071, 0.071)
+texture = ExtResource("4_vl6r8")
 
 [node name="EntityGrabArea" parent="." instance=ExtResource("3_cwi56")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = ExtResource("4_vl6r8")
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.8
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="emit_projectile"]

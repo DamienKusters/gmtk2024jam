@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1s15ch4chego"]
+
+[ext_resource type="Script" path="res://entities/drone/drone.gd" id="1_caknp"]
+[ext_resource type="PackedScene" uid="uid://cfyntmg2qqc2s" path="res://entities/_components/movements/diagonal_movement_component/diagonal_movement_component.tscn" id="2_1bf04"]
+[ext_resource type="PackedScene" uid="uid://bmpfaq61qhpfj" path="res://entities/_components/entity_grab_area.tscn" id="3_jri5n"]
+[ext_resource type="Texture2D" uid="uid://k2bmm41qeqrb" path="res://entities/drone/drone.png" id="4_iq742"]
+
+[node name="Drone" type="Node2D"]
+script = ExtResource("1_caknp")
+
+[node name="DiagonalMovementComponent" parent="." instance=ExtResource("2_1bf04")]
+
+[node name="EntityGrabArea" parent="." instance=ExtResource("3_jri5n")]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("4_iq742")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="emit_projectile"]

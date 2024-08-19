@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2dpdvkv53hjv"]
+
+[ext_resource type="Script" path="res://entities/meteorite/meteorite.gd" id="1_wkaik"]
+[ext_resource type="Texture2D" uid="uid://bljq1duynmbe5" path="res://entities/meteorite/meteorite.png" id="3_2e7ar"]
+[ext_resource type="PackedScene" uid="uid://cfyntmg2qqc2s" path="res://entities/_components/movements/diagonal_movement_component/diagonal_movement_component.tscn" id="3_fawva"]
+[ext_resource type="PackedScene" uid="uid://bmpfaq61qhpfj" path="res://entities/_components/entity_grab_area.tscn" id="4_7ag2o"]
+
+[node name="Meteorite" type="Node2D"]
+script = ExtResource("1_wkaik")
+
+[node name="DiagonalMovementComponentMovementComponent" parent="." instance=ExtResource("3_fawva")]
+SPEED = 800
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.57, 0.57)
+texture = ExtResource("3_2e7ar")
+
+[node name="EntityGrabArea" parent="." instance=ExtResource("4_7ag2o")]

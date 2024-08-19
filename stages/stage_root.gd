@@ -21,7 +21,7 @@ var stages = [
 	StageModel.new(
 		"Solar Stage",
 		preload("res://ui/stages/solar_stage.png"),
-		preload("res://stages/cell_stage/cell_stage.tscn") #TODO: replace
+		preload("res://stages/solar_stage/solar_stage.tscn")
 	),
 	StageModel.new(
 		"Cosmic Stage",
@@ -36,7 +36,7 @@ var loaded_stage
 func _ready() -> void:
 	Game.to_next_stage.connect(next_stage)
 	Game.screen_blacked_out.connect(load_stage)
-	switch_stage(1) # TEST: load cell stage
+	switch_stage(3) # TEST: load cell stage
 
 func next_stage(): # Helper function
 	switch_stage(stage_index + 1)

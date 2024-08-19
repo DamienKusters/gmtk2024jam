@@ -5,7 +5,7 @@ extends Node2D
 
 const DRAG_SPEED = .2;
 
-var grabbed_entity
+var grabbed_entity: Entity
 
 func _process(delta: float) -> void:
 	_tween_position(get_global_mouse_position() - get_parent().position, grabbed_entity)
@@ -23,8 +23,12 @@ func _tween_position(_global_mouse_position: Vector2, _grabbed_entity):
 func _input(_event):
 	if _event is InputEventMouseButton and _event.is_action_pressed("grab"):
 		grabbed_entity = grab_entity()
+		if grabbed_entity:
+			grabbed_entity.grabbed = true
 		$Tentacle.texture = tentacle_closed
 	elif _event is InputEventMouseButton and _event.is_action_released("grab"):
+		if grabbed_entity and is_instance_valid(grabbed_entity):
+			grabbed_entity.grabbed = false
 		grabbed_entity = null
 		$Tentacle.texture = tentacle_open
 		
