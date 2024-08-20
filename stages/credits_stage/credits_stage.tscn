@@ -62,8 +62,9 @@ alignment = 2
 [node name="Cheats" type="Label" parent="Background/Control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Press 1, 2, 3, 4 or 5
-to select a stage"
+text = "Press ESC to
+return to the
+menu"
 horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="Background/Control/VBoxContainer"]

@@ -61,17 +61,17 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		switch_menu_stage()
 	
-	var i = 0
-	for key in [
-		Input.is_action_just_pressed("1"),
-		Input.is_action_just_pressed("2"),
-		Input.is_action_just_pressed("3"),
-		Input.is_action_just_pressed("4"),
-		Input.is_action_just_pressed("5"),
-	]:
-		if key:
-			switch_stage(i) # TEST
-		i += 1
+	#var i = 0
+	#for key in [
+		#Input.is_action_just_pressed("1"),
+		#Input.is_action_just_pressed("2"),
+		#Input.is_action_just_pressed("3"),
+		#Input.is_action_just_pressed("4"),
+		#Input.is_action_just_pressed("5"),
+	#]:
+		#if key:
+			#switch_stage(i) # TEST
+		#i += 1
 
 func next_stage(): # Helper function
 	switch_stage(stage_index + 1)

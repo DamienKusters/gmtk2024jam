@@ -9,7 +9,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="BloodParticles" type="CPUParticles2D"]
 emitting = false
-amount = 90
+amount = 20
 lifetime = 1.5
 one_shot = true
 explosiveness = 0.9
