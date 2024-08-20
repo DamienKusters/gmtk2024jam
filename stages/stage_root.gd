@@ -47,7 +47,7 @@ var stages = [
 ]
 
 var menu_stage = StageModel.new(
-	"<GAME TITLE>",
+	"Cosmic Consumption",
 	preload("res://ui/dna.png"),
 	preload("res://stages/menu_stage/menu_stage.tscn"),
 	preload("res://sound/Microscopic Beginnings.mp3"),

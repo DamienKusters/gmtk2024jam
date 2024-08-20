@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bvg205ua7tdsj" path="res://entities/button/button.png" id="4_har6n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x33ai"]
-size = Vector2(190, 32)
+size = Vector2(192, 46)
 
 [node name="Button" type="Node2D"]
 script = ExtResource("1_4fmw2")

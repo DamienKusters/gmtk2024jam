@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ccbs20833bthx"]
+[gd_scene load_steps=29 format=3 uid="uid://ccbs20833bthx"]
 
 [ext_resource type="Script" path="res://stages/menu_stage/menu_stage.gd" id="1_85ee6"]
 [ext_resource type="Script" path="res://soundplayer.gd" id="3_ys0sn"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bs13sg6fawdeg" path="res://ui/drag_arrow.png" id="11_buv8o"]
 [ext_resource type="Script" path="res://entities/button/credits_button.gd" id="11_ivbak"]
 [ext_resource type="Script" path="res://entities/button/play_button.gd" id="12_0lqgl"]
+[ext_resource type="Texture2D" uid="uid://cxo5l4jsexf1g" path="res://logo.png" id="15_84182"]
 [ext_resource type="Texture2D" uid="uid://co5183wdb3kp6" path="res://ui/stages/cell_stage.png" id="16_23rbe"]
 [ext_resource type="Script" path="res://stages/menu_stage/score_renderer.gd" id="16_277mk"]
 [ext_resource type="Texture2D" uid="uid://ct8m5d1yrwggx" path="res://ui/stages/ocean_stage.png" id="17_e4yyg"]
@@ -23,8 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://cxyp232n30pl3" path="res://ui/stages/credits_stage.png" id="20_wlby5"]
 
 [sub_resource type="Gradient" id="Gradient_4awtg"]
-offsets = PackedFloat32Array(0.383117, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.188235, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.331169, 1)
+colors = PackedColorArray(0.497474, 0.497474, 0.497474, 1, 0, 0, 0, 1, 0.188235, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_h3lhh"]
 gradient = SubResource("Gradient_4awtg")
@@ -208,11 +209,27 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 39.0
+offset_top = 42.0
+offset_right = 65.9003
+offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-texture = ExtResource("9_8mc0e")
+texture = ExtResource("15_84182")
 expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/MenuUi/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -182.0
+offset_bottom = 100.0
+grow_horizontal = 0
+texture = ExtResource("9_8mc0e")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="damienkusters_itch_io" type="Label" parent="CanvasLayer/MenuUi"]
