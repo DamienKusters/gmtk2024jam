@@ -17,4 +17,5 @@ func _ready() -> void:
 	
 static func to_time_string(seconds: float) -> String:
 	var minutes = floor(seconds / 60)
-	return str(minutes, ":", 0 if seconds < 10 else "", (floori(seconds) % 60))
+	var secs = floori(seconds) % 60
+	return str(minutes, ":", 0 if secs < 10 else "", secs)

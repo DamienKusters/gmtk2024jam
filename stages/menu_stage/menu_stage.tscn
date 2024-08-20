@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ccbs20833bthx"]
+[gd_scene load_steps=28 format=3 uid="uid://ccbs20833bthx"]
 
 [ext_resource type="Script" path="res://stages/menu_stage/menu_stage.gd" id="1_85ee6"]
 [ext_resource type="Script" path="res://soundplayer.gd" id="3_ys0sn"]
@@ -13,8 +13,7 @@
 [ext_resource type="Theme" uid="uid://b758yjx3y8pnn" path="res://theme.tres" id="10_k68ao"]
 [ext_resource type="Script" path="res://entities/entities.gd" id="10_m3hf3"]
 [ext_resource type="Texture2D" uid="uid://bs13sg6fawdeg" path="res://ui/drag_arrow.png" id="11_buv8o"]
-[ext_resource type="Script" path="res://entities/button/credits_button.gd" id="11_ivbak"]
-[ext_resource type="Script" path="res://entities/button/play_button.gd" id="12_0lqgl"]
+[ext_resource type="Script" path="res://entities/button/scene_button.gd" id="11_ivbak"]
 [ext_resource type="Texture2D" uid="uid://cxo5l4jsexf1g" path="res://logo.png" id="15_84182"]
 [ext_resource type="Texture2D" uid="uid://co5183wdb3kp6" path="res://ui/stages/cell_stage.png" id="16_23rbe"]
 [ext_resource type="Script" path="res://stages/menu_stage/score_renderer.gd" id="16_277mk"]
@@ -25,7 +24,7 @@
 
 [sub_resource type="Gradient" id="Gradient_4awtg"]
 offsets = PackedFloat32Array(0, 0.331169, 1)
-colors = PackedColorArray(0.497474, 0.497474, 0.497474, 1, 0, 0, 0, 1, 0.188235, 0, 0, 1)
+colors = PackedColorArray(0.258824, 0.0196078, 0.305882, 1, 0, 0, 0, 1, 0.188235, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_h3lhh"]
 gradient = SubResource("Gradient_4awtg")
@@ -126,6 +125,7 @@ script = ExtResource("10_m3hf3")
 [node name="Credits" parent="Entities" instance=ExtResource("9_05e4l")]
 position = Vector2(0, -650)
 script = ExtResource("11_ivbak")
+scene_id = 5
 
 [node name="Label" type="Label" parent="Entities/Credits"]
 offset_left = -120.0
@@ -140,7 +140,8 @@ vertical_alignment = 1
 
 [node name="Play" parent="Entities" instance=ExtResource("9_05e4l")]
 position = Vector2(0, -500)
-script = ExtResource("12_0lqgl")
+script = ExtResource("11_ivbak")
+scene_id = 0
 
 [node name="Label" type="Label" parent="Entities/Play"]
 offset_left = -120.0

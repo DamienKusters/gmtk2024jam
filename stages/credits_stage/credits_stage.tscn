@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cgnefufh7i1pd"]
+[gd_scene load_steps=15 format=3 uid="uid://cgnefufh7i1pd"]
 
 [ext_resource type="Script" path="res://stages/credits_stage/credits_stage.gd" id="1_3rdcn"]
 [ext_resource type="Script" path="res://stages/stage_timer.gd" id="2_017pc"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bfbuk5380yvww" path="res://kraken/kraken.tscn" id="7_200nr"]
 [ext_resource type="PackedScene" uid="uid://df0hvmgkfib8h" path="res://spawner/spawner.tscn" id="8_82fom"]
 [ext_resource type="Script" path="res://entities/entities.gd" id="9_ym6im"]
+[ext_resource type="PackedScene" uid="uid://cyj5i46donfxt" path="res://entities/button/button.tscn" id="11_dhrnj"]
+[ext_resource type="Script" path="res://entities/button/scene_button.gd" id="12_sbtng"]
 
 [sub_resource type="Gradient" id="Gradient_4awtg"]
 colors = PackedColorArray(0.444897, 0.436354, 0.289691, 1, 0.823529, 0.537255, 0.435294, 1)
@@ -147,5 +149,22 @@ unique_name_in_owner = true
 
 [node name="Entities" type="Node2D" parent="."]
 script = ExtResource("9_ym6im")
+
+[node name="Menu" parent="Entities" instance=ExtResource("11_dhrnj")]
+position = Vector2(-268, -61)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("12_sbtng")
+scene_id = 99
+
+[node name="Label" type="Label" parent="Entities/Menu"]
+offset_left = -120.0
+offset_top = -41.0
+offset_right = 122.0
+offset_bottom = 41.0
+theme = ExtResource("4_4lp46")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="Timer" to="." method="entity_tick"]
