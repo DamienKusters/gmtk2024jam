@@ -25,7 +25,7 @@ var stages = [
 		"Solar Stage",
 		preload("res://ui/stages/solar_stage.png"),
 		preload("res://stages/solar_stage/solar_stage.tscn"),
-		preload("res://sound/Microscopic Beginnings.mp3"),
+		preload("res://sound/Consumation Of A Galaxy.mp3"),
 	),
 	#StageModel.new(
 		#"Cosmic Stage",
@@ -37,7 +37,7 @@ var stages = [
 		"Credits Stage",
 		preload("res://ui/stages/credits_stage.png"),
 		preload("res://stages/credits_stage/credits_stage.tscn"), #TODO: replace
-		preload("res://sound/Microscopic Beginnings.mp3"),
+		preload("res://sound/Consumation Of A Galaxy.mp3"),
 	),
 ]
 
