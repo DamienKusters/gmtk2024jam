@@ -9,7 +9,10 @@ var _tween: Tween
 func _animate_switch_stage(new_stage_data: StageModel):
 	$Label.text = new_stage_data.title
 	$TextureRect.texture = new_stage_data.icon
-	
+	var high_score: float = Save.get_stage_score(new_stage_data.save_key)
+	$HighScore.visible = high_score > 0
+	if high_score > 0:
+		$HighScore.text = str("High Score: ", parent.to_time_string(high_score))
 	_tween = Game.animate(self, _tween)
 	_tween.set_ease(Tween.EASE_OUT)
 	_tween.tween_property(self, "modulate", Color.WHITE, .7)
