@@ -24,6 +24,8 @@ Game="*res://game.tscn"
 
 window/size/viewport_width=768
 window/size/viewport_height=1024
+window/size/resizable=false
+window/size/borderless=true
 window/stretch/mode="viewport"
 
 [file_customization]

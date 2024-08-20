@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ccbs20833bthx"]
+[gd_scene load_steps=29 format=3 uid="uid://ccbs20833bthx"]
 
 [ext_resource type="Script" path="res://stages/menu_stage/menu_stage.gd" id="1_85ee6"]
 [ext_resource type="Script" path="res://soundplayer.gd" id="3_ys0sn"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://entities/entities.gd" id="10_m3hf3"]
 [ext_resource type="Texture2D" uid="uid://bs13sg6fawdeg" path="res://ui/drag_arrow.png" id="11_buv8o"]
 [ext_resource type="Script" path="res://entities/button/scene_button.gd" id="11_ivbak"]
+[ext_resource type="Script" path="res://entities/button/quit_button.gd" id="13_e0mmx"]
 [ext_resource type="Texture2D" uid="uid://cxo5l4jsexf1g" path="res://logo.png" id="15_84182"]
 [ext_resource type="Texture2D" uid="uid://co5183wdb3kp6" path="res://ui/stages/cell_stage.png" id="16_23rbe"]
 [ext_resource type="Script" path="res://stages/menu_stage/score_renderer.gd" id="16_277mk"]
@@ -151,6 +152,22 @@ offset_bottom = 41.0
 theme = ExtResource("10_k68ao")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" parent="Entities" instance=ExtResource("9_05e4l")]
+position = Vector2(-268, -50)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("13_e0mmx")
+
+[node name="Label" type="Label" parent="Entities/Quit"]
+offset_left = -120.0
+offset_top = -41.0
+offset_right = 122.0
+offset_bottom = 41.0
+theme = ExtResource("10_k68ao")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
