@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d12jvbidvaqrn"
-path="res://.godot/imported/octo_closed.png-8543059f0ff83bf8e11e43ce6534c0d3.ctex"
+uid="uid://bs13sg6fawdeg"
+path="res://.godot/imported/drag_arrow.png-d01988534bc3386b0d2cc1c25348df92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/octopus/octo_closed.png"
-dest_files=["res://.godot/imported/octo_closed.png-8543059f0ff83bf8e11e43ce6534c0d3.ctex"]
+source_file="res://ui/drag_arrow.png"
+dest_files=["res://.godot/imported/drag_arrow.png-d01988534bc3386b0d2cc1c25348df92.ctex"]
 
 [params]
 

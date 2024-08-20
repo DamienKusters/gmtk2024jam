@@ -23,15 +23,6 @@ anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 
-[node name="ColorRect" type="ColorRect" parent="Background"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.196078)
-
 [node name="Grid" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -44,17 +35,73 @@ theme_override_constants/separation = 0
 [node name="Top" type="HBoxContainer" parent="Grid"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Grid/Top"]
+[node name="Control2" type="Control" parent="Grid/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="Grid/Top"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+color = Color(0, 0, 0, 0.196078)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Grid/Top/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Grid/Top/ColorRect/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("3_gjyii")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="DnaScore" type="Label" parent="Grid/Top"]
+[node name="DnaScore" type="Label" parent="Grid/Top/ColorRect/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "0"
+text = "0
+"
+
+[node name="Control" type="Control" parent="Grid/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="ColorRect2" type="ColorRect" parent="Grid/Top"]
+visible = false
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+color = Color(0, 0, 0, 0.196078)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Grid/Top/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Grid/Top/ColorRect2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_gjyii")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="DnaScore" type="Label" parent="Grid/Top/ColorRect2/HBoxContainer"]
+layout_mode = 2
+text = "0
+"
+
+[node name="Control3" type="Control" parent="Grid/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Mid" type="Control" parent="Grid"]
 layout_mode = 2

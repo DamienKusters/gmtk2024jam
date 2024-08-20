@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cevwb70aapxg7"]
+[gd_scene load_steps=14 format=3 uid="uid://cevwb70aapxg7"]
 
 [ext_resource type="Script" path="res://stages/solar_stage/solar_stage.gd" id="1_ho6sa"]
 [ext_resource type="Script" path="res://background.gd" id="2_3ihr0"]
 [ext_resource type="Script" path="res://soundplayer.gd" id="2_a2pfn"]
+[ext_resource type="Script" path="res://stages/stage_timer.gd" id="2_rlvra"]
 [ext_resource type="Texture2D" uid="uid://c06om87on5on8" path="res://particles/star.png" id="3_xjbgf"]
 [ext_resource type="PackedScene" uid="uid://ct34rmjrpdnfv" path="res://camera/camera_2d.tscn" id="4_uxyce"]
 [ext_resource type="PackedScene" uid="uid://bfbuk5380yvww" path="res://kraken/kraken.tscn" id="5_q5uxa"]
@@ -32,6 +33,7 @@ script = ExtResource("1_ho6sa")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+script = ExtResource("2_rlvra")
 
 [node name="Soundplayer" type="Node" parent="."]
 script = ExtResource("2_a2pfn")
@@ -40,8 +42,8 @@ script = ExtResource("2_a2pfn")
 script = ExtResource("2_3ihr0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
-position = Vector2(0, -3045.5)
-scale = Vector2(1, 1.2174)
+position = Vector2(0, -3044.5)
+scale = Vector2(1, 1.2178)
 texture = SubResource("GradientTexture2D_h3lhh")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Background"]

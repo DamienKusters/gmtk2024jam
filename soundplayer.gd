@@ -1,7 +1,8 @@
 extends Node
 
 var effects = {
-	"damage": preload("res://sound/destroy.wav"),
+	"damage": preload("res://sound/kraken_damage.mp3"),
+	"eat": preload("res://sound/kraken_eat.mp3"),
 	"grab": preload("res://sound/grab.mp3"),
 }
 

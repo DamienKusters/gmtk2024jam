@@ -4,7 +4,11 @@ class_name DroneEntity
 func _ready() -> void:
 	projectile = preload("res://projectiles/vector_projectile/vector_projectile.tscn")
 	dna_score = 2 # OVERRIDE
+	weight = 2 # OVERRIDE
 	particle_color_eat = Color.DARK_SLATE_GRAY
+	if $DiagonalMovementComponent:
+		randomize()
+		$DiagonalMovementComponent.SPEED = randi_range(280, 320)
 
 var dirs = [
 	Vector2(1,1),

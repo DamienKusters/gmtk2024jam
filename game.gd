@@ -8,6 +8,7 @@ const DNA_SCORE_HEIGHT_VALUE = 50
 
 # Stage stuff
 signal to_next_stage
+signal to_stage
 # UI stuff
 signal black_out_screen
 signal screen_blacked_out

@@ -41,22 +41,33 @@ var stages = [
 	),
 ]
 
+var menu_stage = StageModel.new(
+	"<GAME TITLE>",
+	preload("res://ui/dna.png"),
+	preload("res://stages/menu_stage/menu_stage.tscn"),
+	preload("res://sound/Microscopic Beginnings.mp3"),
+)
+
 var requested_stage_index = 0
 var loaded_stage
 
 func _ready() -> void:
 	Game.to_next_stage.connect(next_stage)
+	Game.to_stage.connect(switch_stage)
 	Game.screen_blacked_out.connect(load_stage)
-	switch_stage(0) # TEST: load cell stage
+	switch_stage(99) # Menu
 
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		switch_menu_stage()
+	
 	var i = 0
 	for key in [
-		Input.is_action_pressed("1"),
-		Input.is_action_pressed("2"),
-		Input.is_action_pressed("3"),
-		Input.is_action_pressed("4"),
-		Input.is_action_pressed("5"),
+		Input.is_action_just_pressed("1"),
+		Input.is_action_just_pressed("2"),
+		Input.is_action_just_pressed("3"),
+		Input.is_action_just_pressed("4"),
+		Input.is_action_just_pressed("5"),
 	]:
 		if key:
 			switch_stage(i) # TEST
@@ -65,7 +76,14 @@ func _process(_delta: float) -> void:
 func next_stage(): # Helper function
 	switch_stage(stage_index + 1)
 
+func switch_menu_stage(): # Helper function
+	switch_stage(99)
+
 func switch_stage(index: int):
+	if index == 99:
+		Game.black_out_screen.emit(menu_stage)
+		requested_stage_index = 99
+		return
 	requested_stage_index = clampi(index, 0, stages.size() - 1) #safety
 	Game.black_out_screen.emit(stages[requested_stage_index])
 
@@ -75,9 +93,11 @@ func load_stage():
 	stage_index = requested_stage_index
 	if loaded_stage:
 		loaded_stage.queue_free()
-	var new_stage = stages[stage_index].stage.instantiate()
+	var stage = stages[stage_index] if stage_index != 99 else menu_stage
+	var new_stage = stage.stage.instantiate() 
 	loaded_stage = new_stage
 	Game.dna_score = 0
-	$AudioStreamPlayer.stream = stages[stage_index].music
+	$AudioStreamPlayer.stream = stage.music
 	$AudioStreamPlayer.play(0)
+	$CanvasLayer/Ui.dna_visible = stage_index != 99
 	add_child(loaded_stage)

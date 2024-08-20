@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cgnefufh7i1pd"]
+[gd_scene load_steps=13 format=3 uid="uid://cgnefufh7i1pd"]
 
 [ext_resource type="Script" path="res://stages/credits_stage/credits_stage.gd" id="1_3rdcn"]
+[ext_resource type="Script" path="res://stages/stage_timer.gd" id="2_017pc"]
 [ext_resource type="Script" path="res://soundplayer.gd" id="2_otv8g"]
 [ext_resource type="Script" path="res://background.gd" id="3_oal0q"]
 [ext_resource type="Theme" uid="uid://b758yjx3y8pnn" path="res://theme.tres" id="4_4lp46"]
@@ -24,6 +25,7 @@ script = ExtResource("1_3rdcn")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+script = ExtResource("2_017pc")
 
 [node name="Soundplayer" type="Node" parent="."]
 script = ExtResource("2_otv8g")
@@ -32,8 +34,8 @@ script = ExtResource("2_otv8g")
 script = ExtResource("3_oal0q")
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
-position = Vector2(0, -3045.5)
-scale = Vector2(1, 1.2174)
+position = Vector2(0, -3044.5)
+scale = Vector2(1, 1.2178)
 texture = SubResource("GradientTexture2D_h3lhh")
 
 [node name="Control" type="Control" parent="Background"]
@@ -65,6 +67,13 @@ to select a stage"
 horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="Background/Control/VBoxContainer"]
+layout_mode = 2
+text = "Squid Art:
+opengameart.org/users/shozuki"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="Background/Control/VBoxContainer"]
 layout_mode = 2
 text = "Projectile Shader:
 godotshaders.com/author/juulpower"

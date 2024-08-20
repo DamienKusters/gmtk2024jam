@@ -1,0 +1,212 @@
+[gd_scene load_steps=21 format=3 uid="uid://ccbs20833bthx"]
+
+[ext_resource type="Script" path="res://stages/menu_stage/menu_stage.gd" id="1_85ee6"]
+[ext_resource type="Script" path="res://soundplayer.gd" id="3_ys0sn"]
+[ext_resource type="Script" path="res://background.gd" id="4_wl35m"]
+[ext_resource type="Texture2D" uid="uid://faht8oaby07a" path="res://ui/dna.png" id="5_36ap1"]
+[ext_resource type="Texture2D" uid="uid://c06om87on5on8" path="res://particles/star.png" id="6_7aky0"]
+[ext_resource type="PackedScene" uid="uid://ct34rmjrpdnfv" path="res://camera/camera_2d.tscn" id="7_5d4st"]
+[ext_resource type="PackedScene" uid="uid://bfbuk5380yvww" path="res://kraken/kraken.tscn" id="8_xpesy"]
+[ext_resource type="PackedScene" uid="uid://cyj5i46donfxt" path="res://entities/button/button.tscn" id="9_05e4l"]
+[ext_resource type="Texture2D" uid="uid://b81yrmnpd5bbo" path="res://ui/gmtk2024-logo.png" id="9_8mc0e"]
+[ext_resource type="PackedScene" uid="uid://df0hvmgkfib8h" path="res://spawner/spawner.tscn" id="9_fgyjy"]
+[ext_resource type="Theme" uid="uid://b758yjx3y8pnn" path="res://theme.tres" id="10_k68ao"]
+[ext_resource type="Script" path="res://entities/entities.gd" id="10_m3hf3"]
+[ext_resource type="Texture2D" uid="uid://bs13sg6fawdeg" path="res://ui/drag_arrow.png" id="11_buv8o"]
+[ext_resource type="Script" path="res://entities/button/play_button.gd" id="12_0lqgl"]
+
+[sub_resource type="Gradient" id="Gradient_4awtg"]
+offsets = PackedFloat32Array(0.383117, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.188235, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h3lhh"]
+gradient = SubResource("Gradient_4awtg")
+width = 800
+height = 5000
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_234rx"]
+offsets = PackedFloat32Array(0, 0.346667, 0.68, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_b6oqf"]
+offsets = PackedFloat32Array(0, 0.346667, 0.68, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_2n1qe"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_e75di"]
+offsets = PackedFloat32Array(0, 0.346667, 0.68, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="MenuStage" type="Node2D"]
+script = ExtResource("1_85ee6")
+
+[node name="Soundplayer" type="Node" parent="."]
+script = ExtResource("3_ys0sn")
+
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("4_wl35m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(0, -515)
+scale = Vector2(1, 0.206)
+texture = SubResource("GradientTexture2D_h3lhh")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background"]
+position = Vector2(0, -200)
+amount = 2
+lifetime = 10.0
+local_coords = true
+texture = ExtResource("5_36ap1")
+emission_shape = 3
+emission_rect_extents = Vector2(300, 500)
+spread = 180.0
+gravity = Vector2(0, 0)
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+scale_amount_max = 10.0
+color = Color(1, 1, 1, 0.0588235)
+color_ramp = SubResource("Gradient_234rx")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Background"]
+position = Vector2(4, -227)
+amount = 5
+lifetime = 10.0
+local_coords = true
+texture = ExtResource("6_7aky0")
+emission_shape = 3
+emission_rect_extents = Vector2(300, 500)
+direction = Vector2(-1, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+scale_amount_max = 5.0
+color = Color(1, 1, 1, 0.0588235)
+color_ramp = SubResource("Gradient_b6oqf")
+
+[node name="Stars" type="CPUParticles2D" parent="Background"]
+position = Vector2(4, -955)
+amount = 50
+lifetime = 10.0
+local_coords = true
+texture = ExtResource("6_7aky0")
+emission_shape = 3
+emission_rect_extents = Vector2(500, 200)
+direction = Vector2(-1, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_2n1qe")
+color = Color(1, 1, 1, 0.254902)
+color_ramp = SubResource("Gradient_e75di")
+
+[node name="Camera2D" parent="." instance=ExtResource("7_5d4st")]
+
+[node name="Kraken" parent="." instance=ExtResource("8_xpesy")]
+unique_name_in_owner = true
+
+[node name="Spawner" parent="." instance=ExtResource("9_fgyjy")]
+unique_name_in_owner = true
+
+[node name="Entities" type="Node2D" parent="."]
+script = ExtResource("10_m3hf3")
+
+[node name="Play" parent="Entities" instance=ExtResource("9_05e4l")]
+position = Vector2(0, -600)
+script = ExtResource("12_0lqgl")
+
+[node name="Label" type="Label" parent="Entities/Play"]
+offset_left = -120.0
+offset_top = -41.0
+offset_right = 122.0
+offset_bottom = 41.0
+theme = ExtResource("10_k68ao")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MenuUi" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_k68ao")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/MenuUi"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -147.0
+offset_top = 749.0
+offset_right = -242.573
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("11_buv8o")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="CanvasLayer/MenuUi/TextureRect2"]
+layout_mode = 0
+offset_left = 203.0
+offset_top = -56.0
+offset_right = 416.0
+offset_bottom = -6.0
+theme = ExtResource("10_k68ao")
+theme_override_colors/font_color = Color(0.756863, 0.756863, 0.756863, 1)
+text = "Grab & Drag"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenuUi"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/MenuUi/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MenuUi/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("9_8mc0e")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="damienkusters_itch_io" type="Label" parent="CanvasLayer/MenuUi"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("10_k68ao")
+theme_override_colors/font_color = Color(0.756863, 0.756863, 0.756863, 1)
+theme_override_font_sizes/font_size = 16
+text = "damienkusters.itch.io"
+horizontal_alignment = 1
+vertical_alignment = 1

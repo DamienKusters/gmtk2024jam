@@ -9,7 +9,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="BloodParticles" type="CPUParticles2D"]
 emitting = false
-amount = 20
+amount = 90
 lifetime = 1.5
 one_shot = true
 explosiveness = 0.9
@@ -22,7 +22,7 @@ initial_velocity_max = 600.0
 angular_velocity_min = -100.0
 angular_velocity_max = 100.0
 scale_amount_min = 0.05
-scale_amount_max = 0.2
+scale_amount_max = 0.25
 color = Color(1, 0, 0, 1)
 color_ramp = SubResource("Gradient_8kg1l")
 script = ExtResource("1_wjuao")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://dvs4ffugfcl18"]
+[gd_scene load_steps=15 format=3 uid="uid://dvs4ffugfcl18"]
 
 [ext_resource type="Script" path="res://stages/cell_stage/cell_stage.gd" id="1_7l55k"]
 [ext_resource type="PackedScene" uid="uid://ct34rmjrpdnfv" path="res://camera/camera_2d.tscn" id="1_cppq1"]
 [ext_resource type="PackedScene" uid="uid://bfbuk5380yvww" path="res://kraken/kraken.tscn" id="2_b3621"]
+[ext_resource type="Script" path="res://stages/stage_timer.gd" id="2_pmfbl"]
 [ext_resource type="Script" path="res://soundplayer.gd" id="2_vkc7q"]
 [ext_resource type="Script" path="res://background.gd" id="2_wwxut"]
 [ext_resource type="PackedScene" uid="uid://df0hvmgkfib8h" path="res://spawner/spawner.tscn" id="3_o5kib"]
@@ -32,6 +33,7 @@ script = ExtResource("1_7l55k")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+script = ExtResource("2_pmfbl")
 
 [node name="Soundplayer" type="Node" parent="."]
 script = ExtResource("2_vkc7q")
@@ -40,8 +42,8 @@ script = ExtResource("2_vkc7q")
 script = ExtResource("2_wwxut")
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
-position = Vector2(0, -3045.5)
-scale = Vector2(1, 1.2174)
+position = Vector2(0, -3044.5)
+scale = Vector2(1, 1.2178)
 texture = SubResource("GradientTexture2D_h3lhh")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Background"]

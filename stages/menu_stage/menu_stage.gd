@@ -1,0 +1,2 @@
+extends StageConfiguration
+class_name MenuStage

@@ -8,7 +8,6 @@ func _ready() -> void:
 	dna_score = 2 # OVERRIDE
 	weight = 2 # OVERRIDE
 	particle_color_eat = Color.BLACK # ink
-	$Sprite.flip_h = not $DiagonalMovementComponentMovementComponent.facing_right
 	if area_tentacle:
 		area_tentacle.detected.connect(emit_projectile)
 
